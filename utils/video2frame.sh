@@ -1,3 +1,3 @@
 python video2frame.py \
---input "../input/camera_calibration/C0180.MP4" \
+--input "../input/baseball_swing_20220628/1/1_view1.MP4" \
 --output "../output/video2frame"

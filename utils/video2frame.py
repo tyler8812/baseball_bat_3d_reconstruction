@@ -20,10 +20,9 @@ if __name__ == "__main__":
     if not exists(output_folder + "/" + file_name):
         makedirs(output_folder + "/" + file_name)
     while success:
-        if count % 50 == 0:
-            cv2.imwrite(
-                output_folder + "/" + file_name + "/frame%d.png" % count, image
-            )  # save frame as png file
+        cv2.imwrite(
+            output_folder + "/" + file_name + "/frame%d.png" % count, image
+        )  # save frame as png file
         success, image = vidcap.read()
         print("Read a new frame: ", success)
         count += 1
