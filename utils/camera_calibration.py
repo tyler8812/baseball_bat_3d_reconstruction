@@ -47,17 +47,20 @@ if __name__ == "__main__":
             success_frame.append(os.path.splitext(base)[0])
             # Draw and display the corners
             cv2.drawChessboardCorners(img, chessboard_size, corners2, ret)
+            cv2.imshow("img", img)
             ret, mtx, dist, rvecs, tvecs = cv2.calibrateCamera(
                 objpoints, imgpoints, gray.shape[::-1], None, None
             )
+
             np.savez(
-                input_folder + "/camera_calibration",
+                input_folder + "/camera_calibration2",
                 ret=ret,
                 mtx=mtx,
                 dist=dist,
                 rvecs=rvecs,
                 tvecs=tvecs,
             )
-            cv2.imshow("img", img)
+    print(mtx)
+    print(dist)
     cv2.destroyAllWindows()
     print(sorted(success_frame))
